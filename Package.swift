@@ -1,4 +1,4 @@
-// swift-tools-version:5.9
+// swift-tools-version: 5.9
 import PackageDescription
 
 let package = Package(
@@ -8,20 +8,22 @@ let package = Package(
     ],
     products: [
         .library(
-            name: "GoogleMobileAds",
-            targets: [
-                "GoogleMobileAds",
-                "UserMessagingPlatform"
-            ]
-        ),
-        .library(
-            name: "GoogleUserMessagingPlatform",
-            targets: [
-                "UserMessagingPlatform"
-            ]
+            name: "LabirintsGoogleAds",
+            targets: ["LabirintsGoogleAds"]
         )
     ],
     targets: [
+        .target(
+            name: "LabirintsGoogleAds",
+            dependencies: [
+                "GoogleMobileAds",
+                "UserMessagingPlatform"
+            ],
+            path: "Sources/LabirintsGoogleAds",
+            linkerSettings: [
+                .linkedFramework("WebKit")
+            ]
+        ),
         .binaryTarget(
             name: "GoogleMobileAds",
             path: "Binaries/GoogleMobileAds.xcframework"
