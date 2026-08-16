@@ -9,7 +9,11 @@ let package = Package(
     products: [
         .library(
             name: "LabirintsGoogleAds",
-            targets: ["LabirintsGoogleAds"]
+            targets: [
+                "LabirintsGoogleAds",
+                "GoogleMobileAds",
+                "UserMessagingPlatform"
+            ]
         )
     ],
     targets: [
@@ -30,7 +34,7 @@ let package = Package(
         ),
         .binaryTarget(
             name: "UserMessagingPlatform",
-            path: "Binaries/UserMessagingPlatform.xcframework"
+            path: "Binaries/UserMessagingPlatform.xcframework 
         )
     ]
 )
