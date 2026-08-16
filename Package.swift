@@ -9,32 +9,46 @@ let package = Package(
     products: [
         .library(
             name: "LabirintsGoogleAds",
-            targets: [
-                "LabirintsGoogleAds",
-                "GoogleMobileAds",
-                "UserMessagingPlatform"
-            ]
+            targets: ["LabirintsGoogleAds"]
         )
     ],
     targets: [
         .target(
             name: "LabirintsGoogleAds",
             dependencies: [
-                "GoogleMobileAds",
-                "UserMessagingPlatform"
+                "GoogleMobileAdsTarget",
+                "UserMessagingPlatformTarget"
             ],
             path: "Sources/LabirintsGoogleAds",
             linkerSettings: [
                 .linkedFramework("WebKit")
             ]
         ),
+
+        .target(
+            name: "GoogleMobileAdsTarget",
+            dependencies: [
+                "GoogleMobileAds"
+            ],
+            path: "GoogleMobileAdsTarget"
+        ),
+
+        .target(
+            name: "UserMessagingPlatformTarget",
+            dependencies: [
+                "UserMessagingPlatform"
+            ],
+            path: "UserMessagingPlatformTarget"
+        ),
+
         .binaryTarget(
             name: "GoogleMobileAds",
             path: "Binaries/GoogleMobileAds.xcframework"
         ),
+
         .binaryTarget(
             name: "UserMessagingPlatform",
-            path: "Binaries/UserMessagingPlatform.xcframework" 
+            path: "Binaries/UserMessagingPlatform.xcframework"
         )
     ]
 )
